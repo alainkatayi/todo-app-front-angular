@@ -3,31 +3,21 @@ import { User } from '../models/user';
 import { Route } from '@angular/router';
 //import { Router } from 'express';
 import { Router } from '@angular/router';
+import { error } from 'console';
+import { HttpClient } from '@angular/common/http';
+import { environement } from '../../environements/environement';
+import { AuthLoginData, AuthLoginResponse } from '../models/auth';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://127.0.0.1:8000/api/login';
-  route =inject(Router)
-
-  async login(email: string, password: string): Promise<any> {
-    const user = { email, password };
-
-    const response = await fetch(`${this.apiUrl}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(user),
-    });
-
-    if (!response.ok) {
-      throw new Error('Erreur lors de la connexion');
-    }
-
-    const rep = await response.json();
-    console.log(rep);
-    return rep;
+  private url = environement.apiUrl ;
+  constructor(private http:HttpClient){}
+  
+  //methode pour la connexion
+  login(Data:AuthLoginData):Observable<AuthLoginResponse>{
+    return this.http.post<AuthLoginResponse>(this.url + 'login', Data)
   }
 }
