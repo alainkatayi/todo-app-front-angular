@@ -1,0 +1,33 @@
+<body>
+    <nav class="navbar shadow-xl ">
+        <div class="flex justify-between">
+            <div>
+                <img class="logo-orange" src="Orange_small_logo.png" alt="">
+            </div>
+            <div>
+                <div class="auth">
+                    <ul class="flex">
+                        <li><a [routerLink] = "['/login']" class="loginButton">Login</a></li>
+                        <li><a class="registerButton" [routerLink] = "['/register']" >Register</a></li>
+           
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="flex flex-row body-container">
+        <div class="texte">
+            <h2 class="welcome">Welcome in your space</h2>
+            <h2 class="create"> <strong class="creates">Create yours tasks and manage</strong>  <br> your time easyly.</h2> <br>
+            <div class="divCall">
+                <a class="callButton" [routerLink] = "['/login']" >Create your first task</a>
+            </div>
+        </div>
+        <div class="image">
+            <img src="fond.png" alt="">
+        </div>
+
+ 
+    </div>
+</body>
