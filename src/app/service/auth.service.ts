@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { error } from 'console';
 import { HttpClient } from '@angular/common/http';
 import { environement } from '../../environements/environement';
-import { AuthLoginData, AuthLoginResponse } from '../models/auth';
+import { AuthLoginData, AuthLoginResponse, AuthRegisterData, AuthRegisterResponse } from '../models/auth';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -19,5 +19,10 @@ export class AuthService {
   //methode pour la connexion
   login(Data:AuthLoginData):Observable<AuthLoginResponse>{
     return this.http.post<AuthLoginResponse>(this.url + 'login', Data)
+  }
+
+  //methode pour la creation d'un utilisateur
+  register(Data:AuthRegisterData): Observable<AuthRegisterResponse>{
+    return this.http.post<AuthRegisterResponse>(this.url + 'register', Data)
   }
 }
