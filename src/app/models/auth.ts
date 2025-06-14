@@ -17,3 +17,11 @@ export interface AuthRegisterData{
     password:string
     password_confirmation:string
 }
+
+export interface AuthRegisterResponse{
+    id: number
+    name:string
+    email:string
+    password:string
+    password_confirmation:string
+}
