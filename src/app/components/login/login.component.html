@@ -3,15 +3,15 @@
     <div class="imgDiv">
         <img class="imgForm" src="Orange_small_logo.png" alt="">
     </div>
-    <form (submit)="login()" >
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
         <br>
         <label class="emailLabel" for="email"> Email </label><br>
 
-        <input [(ngModel)]='email' class="emailInput" type="text" id="email" name="email" placeholder="exemple@gmail.com" required><br> <br>
+        <input formControlName="email"  class="emailInput" type="text" id="email" name="email" placeholder="exemple@gmail.com" required><br> <br>
 
         <label class="passwordLabel" for="password">Password</label> <br>
 
-        <input [(ngModel)]="password" class="passwordInput" type="password" id="password" name="password" placeholder="********" required> <br>
+        <input formControlName="password" class="passwordInput" type="password" id="password" name="password" placeholder="********" required> <br>
 
         <button class="submit" type="submit">Login</button>
     </form>
